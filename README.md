@@ -13,7 +13,7 @@ The configuration allows you to change the:
 ## Usage
 
 1. [Download the Zip archive](https://github.com/jhubert/qa-hipchat-notifications/archive/master.zip) and extract it
-2. Place the __qa-hipchat-notifications__ folder in the `qa-plugins` folder
+2. Place the extracted folder in the `qa-plugins` folder on your Q2A install. (I rename it to `hipchat-notifications`)
 3. Update the options in your Q2A plugins admin panel
 4. Post a question and check HipChat to make sure it showed up.
 
