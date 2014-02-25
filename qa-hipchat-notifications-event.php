@@ -3,11 +3,13 @@
 /*
   HipChat Notifications
 
-  File: qa-plugin/qa-hipchat-notifications/qa-hipchat-notifications-event.php
+  File: qa-plugin/hipchat-notifications/qa-hipchat-notifications-event.php
   Version: 0.1
   Date: 2014-02-25
   Description: Event module class for HipChat notifications plugin
 */
+
+require_once QA_INCLUDE_DIR.'qa-app-posts.php';
 
 class qa_hipchat_notifications_event {
 
@@ -18,11 +20,8 @@ class qa_hipchat_notifications_event {
     $this->plugindir = $directory;
   }
 
-  public function process_event($event, $userid, $handle, $cookieid, $params) {
-    require_once QA_INCLUDE_DIR . 'qa-app-emails.php';
-    require_once QA_INCLUDE_DIR . 'qa-app-format.php';
-    require_once QA_INCLUDE_DIR . 'qa-util-string.php';
-
+  public function process_event($event, $userid, $handle, $cookieid, $params)
+  {
     switch ($event) {
       case 'q_post':
         $this->send_hipchat_notification(
@@ -34,11 +33,13 @@ class qa_hipchat_notifications_event {
         );
         break;
       case 'a_post':
+        $parentpost=qa_post_get_full($params['parentid']);
+
         $this->send_hipchat_notification(
           $this->build_new_answer_message(
             isset($handle) ? $handle : qa_lang('main/anonymous'),
-            $params['title'],
-            qa_q_path($params['postid'], $params['title'], true)
+            $parentpost['title'],
+            qa_path(qa_q_request($params['parentid'], $parentpost['title']), null, qa_opt('site_url'), null, qa_anchor('A', $params['postid']))
           )
         );
         break;
