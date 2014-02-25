@@ -10,6 +10,13 @@ The configuration allows you to change the:
 * Color
 * Alert Style
 
+## Usage
+
+1. [Download the Zip archive](https://github.com/jhubert/qa-hipchat-notifications/archive/master.zip) and extract it
+2. Place the __qa-hipchat-notifications__ folder in the `qa-plugins` folder
+3. Update the options in your Q2A plugins admin panel
+4. Post a question and check HipChat to make sure it showed up.
+
 ## Contributing
 
 1. Fork it.
