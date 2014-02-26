@@ -5,7 +5,7 @@
   Plugin URI: https://github.com/jhubert/qa-hipchat-notifications
   Plugin Description: Sends HipChat notifications of various events.
   Plugin Version: 0.1
-  Plugin Date: 2013-11-26
+  Plugin Date: 2014-02-25
   Plugin Author: Jeremy Baker
   Plugin Author URI: https://github.com/jhubert
   Plugin License: MIT
