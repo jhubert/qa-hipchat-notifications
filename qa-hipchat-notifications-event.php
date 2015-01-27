@@ -71,8 +71,12 @@ class qa_hipchat_notifications_event {
 
     if ($token && $room) {
       $hc = new HipChat\HipChat($token);
-
-      $result = $hc->message_room($room, $sender, $message, $notify, $color);
+      try{
+        $result = $hc->message_room($room, $sender, $message, $notify, $color);
+      }
+      catch (HipChat\HipChat_Exception $e) {
+        error_log($e->getMessage());
+      }
     }
   }
 }
