@@ -125,7 +125,7 @@ class HipChat {
                                $message_format = self::FORMAT_HTML) {
     $args = array(
       'room_id' => $room_id,
-      'from' => $from,
+      'from' => utf8_encode($from),
       'message' => utf8_encode($message),
       'notify' => (int)$notify,
       'color' => $color,
