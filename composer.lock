@@ -1,0 +1,104 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "2fe0ad73213149d16ee7d6dde67daabb",
+    "packages": [
+        {
+            "name": "vanilla/garden-http",
+            "version": "v1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vanilla/garden-http.git",
+                "reference": "4eeb8b7e0f54f2403308b0c43804b611a6fd4e2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vanilla/garden-http/zipball/4eeb8b7e0f54f2403308b0c43804b611a6fd4e2a",
+                "reference": "4eeb8b7e0f54f2403308b0c43804b611a6fd4e2a",
+                "shasum": ""
+            },
+            "require": {
+                "lib-curl": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "vanilla/garden": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Garden\\Http\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Todd Burry",
+                    "email": "todd@vanillaforums.com"
+                }
+            ],
+            "description": "An unbloated HTTP client library for building RESTful API clients.",
+            "time": "2017-06-20T21:44:22+00:00"
+        },
+        {
+            "name": "vanilla/hipchat-api",
+            "version": "v2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vanilla/hipchat-api.git",
+                "reference": "fa18c039e808de05c1f5a9e61f762fbfd222e885"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vanilla/hipchat-api/zipball/fa18c039e808de05c1f5a9e61f762fbfd222e885",
+                "reference": "fa18c039e808de05c1f5a9e61f762fbfd222e885",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "vanilla/garden-http": "^1.1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HipChat\\v2\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Gunter",
+                    "email": "tim@vanillaforums.com",
+                    "homepage": "https://vanillaforums.com"
+                }
+            ],
+            "description": "Hipchat v2 API client",
+            "homepage": "https://github.com/vanilla/hipchat-api",
+            "keywords": [
+                "api",
+                "client",
+                "hipchat",
+                "library",
+                "v2"
+            ],
+            "time": "2016-04-29T15:01:37+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

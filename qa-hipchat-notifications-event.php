@@ -9,6 +9,12 @@
   Description: Event module class for HipChat notifications plugin
 */
 
+// The library lives in the HipChat namespace.
+use HipChat\v2\HipChatClient;
+
+// Require composer's autoloader.
+require_once 'vendor/autoload.php';
+
 require_once QA_INCLUDE_DIR.'qa-app-posts.php';
 
 class qa_hipchat_notifications_event {
@@ -47,16 +53,14 @@ class qa_hipchat_notifications_event {
   }
 
   private function build_new_question_message($who, $title, $url) {
-    return sprintf("%s asked a new question: <a href=\"%s\">\"%s\"</a>. Do you know the answer?", $who, $url, $title);
+    return sprintf("<b>%s</b> asked a new question: <a href=\"%s\">\"%s\"</a>. Do you know the answer?", $who, $url, $title);
   }
 
   private function build_new_answer_message($who, $title, $url) {
-    return sprintf("%s answered the question: <a href=\"%s\">\"%s\"</a>.", $who, $url, $title);
+    return sprintf("<b>%s</b> answered the question: <a href=\"%s\">\"%s\"</a>.", $who, $url, $title);
   }
 
   private function send_hipchat_notification($message) {
-    require_once $this->plugindir . 'HipChat' . DIRECTORY_SEPARATOR . 'HipChat.php';
-
     $token = qa_opt('hipchat_notifications_api_token');
     $room = qa_opt('hipchat_notifications_room_name');
     $sender = qa_opt('hipchat_notifications_sender');
@@ -70,11 +74,12 @@ class qa_hipchat_notifications_event {
       $color = 'yellow';
 
     if ($token && $room) {
-      $hc = new HipChat\HipChat($token);
+      $client = new HipChatClient();
+      $client->setAuth($token);
       try{
-        $result = $hc->message_room($room, $sender, $message, $notify, $color);
+        $client->roomsAPI()->sendNotification($room, $message, $color, $notify, 'html');
       }
-      catch (HipChat\HipChat_Exception $e) {
+      catch (Exception $e) {
         error_log($e->getMessage());
       }
     }

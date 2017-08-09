@@ -1,0 +1,29 @@
+{
+    "name": "vanilla/hipchat-api",
+    "description": "Hipchat v2 API client",
+    "keywords": ["hipchat","api","library","client","v2"],
+    "homepage": "https://github.com/vanilla/hipchat-api",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tim Gunter",
+            "email": "tim@vanillaforums.com",
+            "homepage": "https://vanillaforums.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "vanilla/garden-http": "^1.1.2"
+    },
+    "autoload": {
+        "psr-4": { 
+            "HipChat\\v2\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": { 
+            "HipChat\\v2\\Tests\\": "tests"
+        }
+    }
+}
