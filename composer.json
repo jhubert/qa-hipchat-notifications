@@ -1,0 +1,6 @@
+{
+    "require": {
+
+        "vanilla/hipchat-api": "~2.0"
+    }
+}
